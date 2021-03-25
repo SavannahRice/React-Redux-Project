@@ -5,8 +5,11 @@ const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const { restoreUser } = require('../../utils/auth.js');
 const { requireAuth } = require('../../utils/auth.js');
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
 
-
+router.use('/session', sessionRouter);
+router.use('/users', usersRouter);
 
 router.post('/test', function(req, res){
     res.json({requestBody: req.body});
@@ -42,3 +45,15 @@ router.post('/test', function(req, res){
 
 
 module.exports = router;
+
+
+
+// fetch('/api/session', {
+//     method: 'POST',
+//     headers: {
+//       "Content-Type": "application/json",
+//       "XSRF-TOKEN": `b0T3RpWN-5DEBEXTWXSVfQ2yHmLHgZVd7XSM`
+//     },
+//     body: JSON.stringify({ credential: 'demo@user.io', password: 'hello' })
+//   }).then(res => res.json()).then(data => console.log(data));
+

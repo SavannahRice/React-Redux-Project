@@ -45,15 +45,3 @@ router.post('/test', function(req, res){
 
 
 module.exports = router;
-
-
-
-// fetch('/api/session', {
-//     method: 'POST',
-//     headers: {
-//       "Content-Type": "application/json",
-//       "XSRF-TOKEN": `b0T3RpWN-5DEBEXTWXSVfQ2yHmLHgZVd7XSM`
-//     },
-//     body: JSON.stringify({ credential: 'demo@user.io', password: 'hello' })
-//   }).then(res => res.json()).then(data => console.log(data));
-

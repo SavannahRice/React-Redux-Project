@@ -1,0 +1,27 @@
+* {
+    font-family: 'Barlow', sans-serif;
+}
+
+.formContainer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin-top: 20%;
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 10px;
+    border-radius: 2%;
+    background-color: rgba(13, 22, 7, 0.7);
+}
+
+.formName {
+    align-self: center;
+}
+
+.input {
+    margin: 10px;
+}

@@ -1,9 +1,7 @@
 import {csrfFetch} from './csrf';
 
-
 const LOAD = 'session/setUser';
 const REMOVE = 'session/removeUser';
-
 
 const setUser = user => ({
     type: LOAD,
@@ -54,6 +52,14 @@ export const userSignUp = (user) => async dispatch => {
     dispatch(setUser(userInfo));
     return userInfo;
 }
+
+export const userLogout = () => async dispatch => {
+    const response = await csrfFetch('api/session', {
+        method: "DELETE",
+    });
+    dispatch(removeUser());
+    return response;
+};
 
 
 const initialState = { user: null };

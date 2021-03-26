@@ -51,7 +51,7 @@ const LoginFormPage = () => {
                 value={password}
                 onChange={updatePassword}
                 />
-                <button className='button input' type='submit' onClick={handleSubmit}>Login</button>
+                <button className='button input' type='submit'>Login</button>
             </form>
         </div>
 

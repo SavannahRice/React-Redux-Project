@@ -1,6 +1,6 @@
-* {
-    font-family: 'Barlow', sans-serif;
-}
+/* body {
+    background-image: url('');
+} */
 
 .formContainer {
     display: flex;
@@ -8,8 +8,9 @@
     height: auto;
     justify-content: center;
     margin-top: 20%;
+    
 }
-.loginForm {
+.signUpForm {
     display: flex;
     flex-direction: column;
     width: 40%;

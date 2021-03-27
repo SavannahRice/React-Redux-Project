@@ -11,15 +11,19 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    dispatch(sessionActions.sessionUserInfo());
-    setIsLoaded(true);
+  // useEffect(() => {
+  //   dispatch(sessionActions.sessionUserInfo());
+  //   setIsLoaded(true);
 
+  // }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(sessionActions.sessionUserInfo()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return isLoaded && (
     <>
-    <Navigation isLoaded={isLoaded}/>
+      <Navigation isLoaded={isLoaded}/>
       <Switch>
         <Route path='/login'>
           <LoginFormPage />

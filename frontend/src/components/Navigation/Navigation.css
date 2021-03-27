@@ -1,0 +1,61 @@
+.navbar {
+    background-color: white;
+    height: 4em;
+    display: flex;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+ 
+}
+.login,
+.signup{
+    margin: 7px;
+    text-decoration: none;
+    align-self: flex-end;
+    font-size: 1.4rem;
+    color: rgb(249, 89, 79)
+}
+
+.logo {
+    width: 200px;
+}
+
+.avatarImg{
+    width: 60px;
+    border-radius: 50%;
+    align-self: flex-end;
+}
+.avatarImg:hover{
+    cursor: pointer;
+}
+
+.avatarButton,
+.avatarButton:active {
+    background-color: white;
+    outline: none;
+    border: none;
+    width: 60px;
+    border-radius: 50%;
+    align-self: flex-end;
+}
+
+.searchAndAvatarDiv{
+    display: flex;
+    /* border: 2px solid black; */
+    width: 65%;
+    justify-content: space-between; 
+    margin-right: 30px;
+}
+.searchBarLogged{
+    width: 50%;
+    border: 2px solid rgb(249, 89, 79);
+    outline: none;
+    align-self: flex-end;
+
+}
+

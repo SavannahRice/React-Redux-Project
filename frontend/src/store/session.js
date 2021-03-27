@@ -23,10 +23,9 @@ export const loadUser = (user) => async dispatch => {
             password,
         }),
     });
-    
-        const userInfo = await response.json();
-        dispatch(setUser(userInfo));
-        return userInfo;
+    const userInfo = await response.json();
+    dispatch(setUser(userInfo.user));
+    return response;
 }
 
 //Retains the sesion user info on a refresh
@@ -40,17 +39,18 @@ export const sessionUserInfo = () => async dispatch => {
 //Creates a user account
 export const userSignUp = (user) => async dispatch => {
     const { username, email, password } = user;
-    const response = await csrfFetch('api/users', {
+    console.log(user);
+    const response = await csrfFetch('/api/users', {
         method: "POST",
         body: JSON.stringify({
             username,
             email,
             password,
-        })
-    })
-    const userInfo = await response.json();
-    dispatch(setUser(userInfo));
-    return userInfo;
+        }),
+    });
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
 }
 
 export const userLogout = () => async dispatch => {
@@ -70,7 +70,6 @@ const sessionReducer = (state = initialState, action) => {
     case LOAD:
         newState = { ...state, user: action.user };
         return newState;
-        return 
     case REMOVE:
         newState = {...state, user: action.user}
         return newState;

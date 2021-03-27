@@ -28,31 +28,32 @@ const LoginFormPage = () => {
             });
     }
     return (
-        
-        <div className='formContainer'>
-            <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <form className='loginForm' onSubmit={handleSubmit}>
-                <h2 className='formName input'>Login</h2>
-                <input
-                className='credential input'
-                type='text'
-                placeholder="Enter username or email"
-                required
-                value={credential}
-                onChange={updateCredential}
-                />
-                <input
-                className='password input'
-                type='password'
-                placeholder="Enter password"
-                required
-                value={password}
-                onChange={updatePassword}
-                />
-                <button className='button input' type='submit'>Login</button>
-            </form>
+        <div className='loginPage' >
+            <div className='formContainer'>
+                <ul>
+                        {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+                <form className='loginForm' onSubmit={handleSubmit}>
+                    <h2 className='formName input'>Login</h2>
+                    <input
+                    className='credential input'
+                    type='text'
+                    placeholder="Enter username or email"
+                    required
+                    value={credential}
+                    onChange={updateCredential}
+                    />
+                    <input
+                    className='password input'
+                    type='password'
+                    placeholder="Enter password"
+                    required
+                    value={password}
+                    onChange={updatePassword}
+                    />
+                    <button className='button input' type='submit'>Login</button>
+                </form>
+            </div>
         </div>
 
     )

@@ -42,18 +42,22 @@
     width: 60px;
     border-radius: 50%;
     align-self: flex-end;
+    
 }
 
 .searchAndAvatarDiv{
     display: flex;
     /* border: 2px solid black; */
-    width: 65%;
-    justify-content: space-between; 
+    width: 90%;
+    justify-content: flex-end; 
     margin-right: 30px;
 }
 .searchBarLogged{
     width: 50%;
-    border: 2px solid rgb(249, 89, 79);
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px 10px;
     outline: none;
     align-self: flex-end;
 

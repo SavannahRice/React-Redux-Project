@@ -18,6 +18,18 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      city: {
+        type: Sequelize.STRING(20),
+        allowNull: false,
+      },
+      state: {
+        type: Sequelize.STRING(12),
+        allowNull: false,
+      },
+      avatar: {
+        type: Sequelize.STRING(256),
+        allowNull: true,
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,

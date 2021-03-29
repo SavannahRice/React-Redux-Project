@@ -1,0 +1,69 @@
+
+.splashImage {
+    height: 35vh;
+    background-color: lightgray;
+    margin-top: 5px;
+
+}
+
+.backgroundImg {
+    /* height: 50vh;
+    width: auto; */
+    /* object-fit: cover; */
+    /* object-position: 100% 0; */
+}
+
+#state1,
+#state2,
+#state3,
+#state4,
+#state5,
+#state6,
+#state7,
+#state8,
+#state9,
+#state10 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+   
+}
+
+.id,
+.ca,
+.ut,
+.wa,
+.wy,
+.nm,
+.co,
+.az,
+.or,
+.tx
+{
+    height: 150px;
+    width: 150px; 
+}
+
+.statesDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+}
+
+.rentalsDiv{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.rentals{
+    height: 300px;
+    width: 300px;
+    background-color: lightgray;
+    margin: 20px;
+}
+
+

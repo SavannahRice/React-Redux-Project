@@ -23,6 +23,18 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
   },
+  city: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  state: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  avatar: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
     hashedPassword: {
       type: DataTypes.STRING,
       allowNull: false,

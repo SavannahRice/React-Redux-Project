@@ -36,13 +36,18 @@ function ProfileButton({user}){
                     <img className='avatarImg' src={avatar} alt=""/>
                 </button>
                 {showMenu && (
-                    <ul className="profile-dropdown">
-                        <li>{user.username}</li>
-                        <li>{user.email}</li>
-                        <li>
-                            <button onClick={logout}>Log Out</button>
-                        </li>
-                    </ul>
+                    <div className='menuDropdown'>
+                        <p>{user.username}</p>
+                        <p>{user.email}</p>
+                        <button onClick={logout}>Log Out</button>
+                    </div>
+                    // <ul className="profile-dropdown">
+                    //     <li>{user.username}</li>
+                    //     <li>{user.email}</li>
+                  //     <li>
+                    //         <button onClick={logout}>Log Out</button>
+                    //     </li>
+                    // </ul>
                 )}
             </div>
         </>

@@ -29,6 +29,7 @@
     width: 60px;
     border-radius: 50%;
     align-self: flex-end;
+    
 }
 .avatarImg:hover{
     cursor: pointer;
@@ -62,4 +63,13 @@
     align-self: flex-end;
 
 }
+
+.menuDropdown{
+    transform: translateX(-50%);
+    border: 2px solid black;
+    background-color: rgba(0,0,0, 0.6);
+    color: white;
+
+}
+
 

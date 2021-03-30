@@ -2,21 +2,19 @@
 module.exports = (sequelize, DataTypes) => {
   const Reservation = sequelize.define('Reservation', {
     userId: {
-      type: Sequelize.INTEGER,
-      references: { model: "Users"},
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     rentalId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      references: {model: "Rentals"}
     },
     start_date: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       allowNull:false,
     },
     end_date: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       allowNull:false,
     },
   }, {});

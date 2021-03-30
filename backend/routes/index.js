@@ -1,8 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
+const asyncHandler = require('express-async-handler');
 
 router.use('/api', apiRouter);
+
+// router.get('/', asyncHandler(async(req, res) => {
+//   console.log('test')
+//   // const rentals = await Rental.findAll({
+//   //     order: [[ Sequelize.fn('RANDOM')]],
+//   //     limit: 8
+//   // })
+//   // console.log(rentals);
+// }))
 
 // Static routes
 // Serve React build files in production

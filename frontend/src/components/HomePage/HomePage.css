@@ -51,19 +51,58 @@
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
+    /* border: 2px solid black; */
 }
 
 .rentalsDiv{
     display: flex;
     flex-wrap: wrap;
     margin-left: 20px;
+    
 }
 
 .rentals{
-    height: 300px;
+    height: 350px;
     width: 300px;
     background-color: lightgray;
     margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    
+    
 }
+
+.rentalPhoto{
+    height: 300px;
+    width: 300px;
+}
+.rentalInfoDiv {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 300px;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* align-content: flex-start; */
+
+}
+
+.rentalTitle{
+    width: 150px;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px;
+    /* border: 2px solid black; */
+    
+}
+
+.rentalPrice{
+    /* align-self: flex-start; */
+    /* border: 2px solid black; */
+    margin: 5px;
+    
+}
+
 
 

@@ -2,19 +2,19 @@
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     rentalId: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     description: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull:false,
     },
     rating: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull:false,
     },
   }, {});

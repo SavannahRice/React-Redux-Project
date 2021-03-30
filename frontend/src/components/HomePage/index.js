@@ -7,6 +7,10 @@ import utah from "../images/utah.png";
 import washington from "../images/washington.png";
 import wyoming from "../images/wyoming.png";
 import newmexico from "../images/newmexico.png";
+import rentalReducer, {getRentals} from '../../store/rentals'
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, Route, useParams } from "react-router-dom";
 // import colorado from "../images/colorado.png";
 // import arizona from "../images/arizona.png";
 // import oregon from "../images/oregon.png";
@@ -14,6 +18,15 @@ import newmexico from "../images/newmexico.png";
 
 
 const HomePage = () => {
+    const dispatch = useDispatch();
+    const rentals = useSelector(state => state.rentals);
+    // console.log(typeof(rentals), rentals);
+    console.log(rentals.rentals[0]);
+    
+
+    useEffect(() => {
+        dispatch(getRentals());
+    }, [dispatch])
 
     return (
         <>
@@ -50,14 +63,15 @@ const HomePage = () => {
                     </div>  
                 <h2>Top Rentals</h2>  
                     <div className="rentalsDiv">
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
-                        <div className='rentals'></div>
+                        {rentals.rentals.map(rental => (
+                            <div className='rentals'>
+                                <img  className='rentalPhoto'key={rental.id} src={rental.mainPhoto} alt=""/>
+                                <div className='rentalInfoDiv'>
+                                    <h4 className='rentalTitle' key={rental.id}>{rental.title}</h4>
+                                    <span className='rentalPrice'>${rental.nightPrice}/night</span>
+                                </div>
+                            </div>)
+                        )}
                     </div>  
             </div>
         </>

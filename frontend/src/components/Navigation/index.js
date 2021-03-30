@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import SearchBar from './Search';
 import logo from '../images/solo-project-logo.png';
 import './Navigation.css';
 
@@ -13,7 +14,7 @@ const Navigation = ({ isLoaded }) => {
         sessionLinks = (
             <>
                 <div className='searchAndAvatarDiv'>
-                    <input type='text' className='searchBarLogged' placeholder="Search"></input>
+                    <SearchBar />
                     <ProfileButton className='userAvatar'user={sessionUser}/>
                 </div>
             </>
@@ -22,7 +23,7 @@ const Navigation = ({ isLoaded }) => {
         sessionLinks = (
             <>
                 <div className='links'>
-                    <input type='text' className='searchBarLogged' placeholder="Search"></input>
+                    <SearchBar />
                     <NavLink to='/login' className="login">Login</NavLink>
                     <NavLink to='/signup' className="signup">Signup</NavLink>
                 </div>

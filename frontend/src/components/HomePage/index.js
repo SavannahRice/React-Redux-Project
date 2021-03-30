@@ -1,16 +1,17 @@
 import React from 'react';
 import './HomePage.css';
-import backgroundImg from "../images/solo-project-background.jpg"
 import idaho from "../images/idaho.png";
 import california from "../images/california.png";
 import utah from "../images/utah.png";
 import washington from "../images/washington.png";
 import wyoming from "../images/wyoming.png";
 import newmexico from "../images/newmexico.png";
-import rentalReducer, {getRentals} from '../../store/rentals'
+import {getRentals} from '../../store/rentals'
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Route, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {getSearchResults} from '../../store/search';
+import {useHistory} from 'react-router-dom';
 // import colorado from "../images/colorado.png";
 // import arizona from "../images/arizona.png";
 // import oregon from "../images/oregon.png";
@@ -20,9 +21,16 @@ import { NavLink, Route, useParams } from "react-router-dom";
 const HomePage = () => {
     const dispatch = useDispatch();
     const rentals = useSelector(state => state.rentals);
-    // console.log(typeof(rentals), rentals);
-    console.log(rentals.rentals[0]);
-    
+    const [searchQuery, setSearchQuery] = useState('');
+
+    let history = useHistory();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // console.log('test1')
+        dispatch(getSearchResults(searchQuery))
+        history.push('/search');
+    }
 
     useEffect(() => {
         dispatch(getRentals());
@@ -37,37 +45,41 @@ const HomePage = () => {
                 <h2>Explore a new state</h2>
                     <div className='statesDiv'>
                         <div className='state' id='state1'>
-                            <img className="id" src={idaho} alt=""/>
-                            <a href="/search">Idaho</a>
+                        <a href="/search" value='ID' onMouseEnter={() => setSearchQuery('ID')} onClick={handleSubmit}><img className="id" src={idaho} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('ID')} onClick={handleSubmit}>Idaho</a>
                         </div>
                         <div className='state' id='state2'>
-                            <img className="ca" src={california} alt=""/>
-                            <a href="/search">California</a>
+                        <a href="/search" value='CA' onMouseEnter={() => setSearchQuery('CA')} onClick={handleSubmit}><img className="ca" src={california} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('CA')} onClick={handleSubmit}>California</a>
                         </div>
                         <div className='state' id='state3'>
-                            <img className="ut" src={utah} alt=""/>
-                            <a href="/search">Utah</a>
+                        <a href="/search" value='UT' onMouseEnter={() => setSearchQuery('UT')} onClick={handleSubmit}><img className="ut" src={utah} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('UT')} onClick={handleSubmit}>Utah</a>
                         </div>
                         <div className='state' id='state4'>
-                            <img className="wa" src={washington} alt=""/>
-                            <a href="/search">Washington</a>
+                        <a href="/search" value='WA' onMouseEnter={() => setSearchQuery('WA')} onClick={handleSubmit}><img className="wa" src={washington} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('WA')} onClick={handleSubmit}>Washington</a>
                         </div>
                         <div className='state' id='state5'>
-                            <img className="wy" src={wyoming} alt=""/>
-                            <a href="/search">Wyoming</a>
+                        <a href="/search" value='WY' onMouseEnter={() => setSearchQuery('WY')} onClick={handleSubmit}><img className="wy" src={wyoming} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('WY')} onClick={handleSubmit}>Wyoming</a>
                         </div>
                         <div className='state' id='state6'>
-                            <img className="nm" src={newmexico} alt=""/>
-                            <a href="/search">New Mexico</a>
+                        <a href="/search" value='NM' onMouseEnter={() => setSearchQuery('NM')} onClick={handleSubmit}><img className="nm" src={newmexico} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('NM')} onClick={handleSubmit}>New Mexico</a>
                         </div>
                     </div>  
                 <h2>Top Rentals</h2>  
                     <div className="rentalsDiv">
                         {rentals.rentals.map(rental => (
                             <div className='rentals'>
-                                <img  className='rentalPhoto'key={rental.id} src={rental.mainPhoto} alt=""/>
+                                <Link to={`/rentals/${rental.id}`}>
+                                    <img className='rentalPhoto' key={rental.id} src={rental.mainPhoto} alt=""/>
+                                </Link>
                                 <div className='rentalInfoDiv'>
+                                <Link to={`/rentals/${rental.id}`}>
                                     <h4 className='rentalTitle' key={rental.id}>{rental.title}</h4>
+                                </Link>   
                                     <span className='rentalPrice'>${rental.nightPrice}/night</span>
                                 </div>
                             </div>)

@@ -5,9 +5,10 @@ const { Rental } = require('../../db/models');
 const { Sequelize } = require('sequelize');
 const { Op } = require("sequelize");
 
-router.post('', asyncHandler(async(req, res) => {
-    const { searchInput } = req.body
-    console.log('test')
+router.get('/:id', asyncHandler(async(req, res) => {
+    console.log('SEARCH--------------------------------------')
+    const searchInput = req.params.id
+    console.log(searchInput);
     const rentals = await Rental.findAll({
         where: {
             state: {[Op.iLike]: `%${searchInput}%`}

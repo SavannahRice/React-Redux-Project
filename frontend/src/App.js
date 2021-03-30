@@ -7,16 +7,12 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import SearchResultsPage from './components/SearchResultsPage';
+import SingleHomePage from './components/SingleHomePage';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   dispatch(sessionActions.sessionUserInfo());
-  //   setIsLoaded(true);
-
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(sessionActions.sessionUserInfo()).then(() => setIsLoaded(true));
@@ -34,6 +30,12 @@ function App() {
         </Route>
         <Route path='/signup'>
           <SignupFormPage />
+        </Route>
+        <Route path='/search'>
+          <SearchResultsPage />
+        </Route>
+        <Route path='/rentals/:id'>
+          <SingleHomePage />
         </Route>
       </Switch>
     </>

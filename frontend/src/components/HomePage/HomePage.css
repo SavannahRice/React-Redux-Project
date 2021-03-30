@@ -1,17 +1,22 @@
 
 .splashImage {
-    height: 35vh;
+    height: 320px;
+    width: auto;
     background-color: lightgray;
     margin-top: 5px;
+    background-image: url(../images/solo-project-background.jpg);
+    object-position: right top;
+    background-position-y: 68%;
+    background-position-x: 50%;
 
 }
 
-.backgroundImg {
-    /* height: 50vh;
-    width: auto; */
+/* .backgroundImg {
+    height: 40vh;
+    width: auto; 
     /* object-fit: cover; */
-    /* object-position: 100% 0; */
-}
+    /* object-position: 100% 0;
+} */
 
 #state1,
 #state2,
@@ -26,6 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1 1;
     height: 200px;
     width: 200px;
    
@@ -59,21 +65,31 @@
     flex-wrap: wrap;
     margin-left: 20px;
     
+    
 }
 
 .rentals{
-    height: 350px;
-    width: 300px;
-    background-color: lightgray;
+    height: 355px;
+    width: 302px;
+    /* background-color: lightgray; */
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 5%;
+    justify-content: baseline;
+    /* flex: 1 1; */
     /* align-items: center; */
     
     
 }
 
+.rentals:hover {
+    box-shadow: 2px 2px 4px 2px rgb(0,0,0,0.2);
+}
+
 .rentalPhoto{
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 5%;
     height: 300px;
     width: 300px;
 }
@@ -93,8 +109,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 5px;
-    /* border: 2px solid black; */
-    
+   
+   
 }
 
 .rentalPrice{
@@ -102,6 +118,11 @@
     /* border: 2px solid black; */
     margin: 5px;
     
+}
+
+.titleLink {
+    text-decoration: none;
+    color: black;
 }
 
 

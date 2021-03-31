@@ -34,7 +34,7 @@ function App() {
         <Route path='/search'>
           <SearchResultsPage />
         </Route>
-        <Route path='/rentals/:id'>
+        <Route path='/rentals/:id' exact>
           <SingleHomePage />
         </Route>
       </Switch>

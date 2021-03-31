@@ -1,3 +1,4 @@
+import {csrfFetch} from './csrf';
 const LOAD = 'search/LOAD';
 
 const load = list => ({
@@ -8,7 +9,7 @@ const load = list => ({
 
 export const getSearchResults = (param) => async dispatch => {
     
-    const response = await fetch(`/api/search/${param}`);
+    const response = await csrfFetch(`/api/search/${param}`);
 
     if (response.ok){
         const list = await response.json();

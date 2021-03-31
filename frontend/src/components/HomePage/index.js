@@ -6,7 +6,7 @@ import utah from "../images/utah.png";
 import washington from "../images/washington.png";
 import wyoming from "../images/wyoming.png";
 import newmexico from "../images/newmexico.png";
-import {getRentals} from '../../store/rentals'
+import {getRentals, getSingleRental} from '../../store/rentals'
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -22,6 +22,7 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const rentals = useSelector(state => state.rentals);
     const [searchQuery, setSearchQuery] = useState('');
+    const [singleRental, setSingleRental] = useState();
 
     let history = useHistory();
 
@@ -32,6 +33,13 @@ const HomePage = () => {
         history.push('/search');
     }
 
+    const handleSingleRental = async (e) => {
+        setSingleRental(e.target.value)
+        console.log('this is the single rental', singleRental);
+        dispatch(getSingleRental(singleRental))
+    }
+
+    
     useEffect(() => {
         dispatch(getRentals());
     }, [dispatch])
@@ -65,19 +73,36 @@ const HomePage = () => {
                             <a href="/search" onMouseEnter={() => setSearchQuery('WY')} onClick={handleSubmit}>Wyoming</a>
                         </div>
                         <div className='state' id='state6'>
-                        <a href="/search" value='NM' onMouseEnter={() => setSearchQuery('NM')} onClick={handleSubmit}><img className="nm" src={newmexico} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('NM')} onClick={handleSubmit}>New Mexico</a>
+                        <a href="/search" value='NM' onMouseEnter={() => setSearchQuery('New')} onClick={handleSubmit}><img className="nm" src={newmexico} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('New')} onClick={handleSubmit}>New Mexico</a>
                         </div>
                     </div>  
                 <h2>Top Rentals</h2>  
                     <div className="rentalsDiv">
                         {rentals.rentals.map(rental => (
                             <div className='rentals'>
-                                <Link to={`/rentals/${rental.id}`}>
-                                    <img className='rentalPhoto' key={rental.id} src={rental.mainPhoto} alt=""/>
+                                <Link 
+                                to={`/rentals/${rental.id}`} 
+                                // value={rental.id} 
+                                // onMouseEnter={(e) => {
+                                //     setSingleRental(rental.id)
+                                //     console.log(e.target)}} 
+                                // onClick={(e) => handleSingleRental(e)}
+                                >
+                                    <img 
+                                    className='rentalPhoto' 
+                                    // value={rental.id} 
+                                    // onMouseEnter={(e) => {
+                                    //     setSingleRental(e.target.attributes.value.nodeValue)
+                                    //     console.log(e.target.attributes.value.nodeValue)}}
+                                    // onMouseEnter={(e) => setSingleRental(e.target.value)} 
+                                    // onClick={(e) => handleSingleRental(e)}
+                                    key={rental.id} 
+                                    src={rental.mainPhoto} 
+                                    alt=""/>
                                 </Link>
                                 <div className='rentalInfoDiv'>
-                                <Link to={`/rentals/${rental.id}`}>
+                                <Link to={`/rentals/${rental.id}`} value={rental.id} >
                                     <h4 className='rentalTitle' key={rental.id}>{rental.title}</h4>
                                 </Link>   
                                     <span className='rentalPrice'>${rental.nightPrice}/night</span>

@@ -1,0 +1,24 @@
+.singleHousePhotoDiv{
+    display: flex;
+    border: 2px solid purple;
+    height: 800px;
+    width: 825px;
+}
+
+.smallPhoto{
+    height: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+
+.smallPhotoDiv{
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid purple;
+    width: auto;
+}
+
+#mainPhoto{
+    height: 400px;
+}

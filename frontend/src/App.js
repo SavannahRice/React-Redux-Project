@@ -15,14 +15,14 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(sessionActions.sessionUserInfo()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded}/>
       <Switch>
-        <Route path='/' exact>
+        <Route path='/' exact >
           <HomePage />
         </Route>
         <Route path='/login'>

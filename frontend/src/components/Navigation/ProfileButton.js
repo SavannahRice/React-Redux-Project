@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
+import {logout}  from '../../store/session';
 import avatar from '../images/solo-project-avatar.jpeg'
 
 function ProfileButton({user}){
@@ -23,9 +23,9 @@ function ProfileButton({user}){
         return () => document.removeEventListener('click', closeMenu);
     }, [showMenu]);
 
-    const logout = (e) => {
-        e.preventDefault();
-        dispatch(sessionActions.userLogout);
+    const logoutUser = (e) => {
+        // e.preventDefault();
+        dispatch(logout());
     };
 
     return (
@@ -39,7 +39,7 @@ function ProfileButton({user}){
                     <div className='menuDropdown'>
                         <p>{user.username}</p>
                         <p>{user.email}</p>
-                        <button onClick={logout}>Log Out</button>
+                        <button onClick={logoutUser}>Log Out</button>
                     </div>
                     // <ul className="profile-dropdown">
                     //     <li>{user.username}</li>

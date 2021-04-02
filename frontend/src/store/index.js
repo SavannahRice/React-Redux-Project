@@ -3,33 +3,16 @@ import thunk from 'redux-thunk';
 import rentalReducer from './rentals';
 import sessionReducer from './session';
 import searchReducer from './search';
+import reservationReducer from './reservation';
+import reviewReducer from './review';
 
-// function saveToLocalStorage(state){
-//   try {
-//     const serializedState = JSON.stringify(state);
-//     localStorage.setItem('state', serializedState)
-//   } catch(e){
-//     console.log(e)
-//   }
-// };
-
-// function loadFromLocalStorage(){
-//   try{
-//     const serializedState = localStorage.getItem('state');
-//     if(serializedState === null) return undefined;
-//     return JSON.parse(serializedState)
-//   } catch(e){
-//     console.log(e)
-//     return undefined
-//   }
-// }
-
-// const persistedState = loadFromLocalStorage();
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   rentals: rentalReducer,
   search: searchReducer,
+  reservation: reservationReducer,
+  review: reviewReducer,
 });
 
 let enhancer;

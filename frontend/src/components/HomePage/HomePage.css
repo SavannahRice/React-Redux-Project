@@ -50,6 +50,7 @@
 {
     height: 150px;
     width: 150px; 
+    border-radius: 50%;
 }
 
 .statesDiv{
@@ -123,6 +124,20 @@
 .titleLink {
     text-decoration: none;
     color: black;
+}
+
+.id:hover,
+.ca:hover,
+.ut:hover,
+.wa:hover,
+.wy:hover,
+.nm:hover,
+.co:hover,
+.az:hover,
+.or:hover,
+.tx:hover
+{
+    box-shadow: 2px 2px 4px 2px rgb(0,0,0,0.2);
 }
 
 

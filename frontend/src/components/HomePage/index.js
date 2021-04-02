@@ -6,7 +6,7 @@ import utah from "../images/utah.png";
 import washington from "../images/washington.png";
 import wyoming from "../images/wyoming.png";
 import newmexico from "../images/newmexico.png";
-import {getRentals, getSingleRental} from '../../store/rentals'
+import {getRentals} from '../../store/rentals'
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const rentals = useSelector(state => state.rentals);
     const [searchQuery, setSearchQuery] = useState('');
-    const [singleRental, setSingleRental] = useState();
+    // const [singleRental, setSingleRental] = useState();
 
     let history = useHistory();
 
@@ -33,11 +33,11 @@ const HomePage = () => {
         history.push('/search');
     }
 
-    const handleSingleRental = async (e) => {
-        setSingleRental(e.target.value)
-        console.log('this is the single rental', singleRental);
-        dispatch(getSingleRental(singleRental))
-    }
+    // const handleSingleRental = async (e) => {
+    //     setSingleRental(e.target.value)
+    //     console.log('this is the single rental', singleRental);
+    //     dispatch(getSingleRental(singleRental))
+    // }
 
     
     useEffect(() => {

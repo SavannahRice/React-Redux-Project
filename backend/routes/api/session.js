@@ -5,6 +5,7 @@ const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const { Rental, Reservation, Review } = require('../../db/models');
 
 const router = express.Router();
 
@@ -26,7 +27,8 @@ router.post(
     asyncHandler(async (req, res, next) => {
       const { credential, password } = req.body;
   
-      const user = await User.login({ credential, password });
+      const user = await User.login({ credential, password , include: [Rental, Reservation, Review]}, 
+        );
   
       if (!user) {
         const err = new Error('Login failed');

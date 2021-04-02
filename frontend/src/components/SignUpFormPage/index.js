@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userSignUp } from '../../store/session';
+import { signup } from '../../store/session';
 import { Redirect } from 'react-router-dom';
 import './SignUpForm.css';
 
@@ -28,7 +28,7 @@ const SignupFormPage = () => {
         const user = {username, email, password};
         if (password === confirmPassword){
             setErrors([]);
-            return dispatch(userSignUp(user))
+            return dispatch(signup(user))
                .catch(async (res) => {
                    const data = await res.json();
                    if (data && data.errors) setErrors(data.errors);

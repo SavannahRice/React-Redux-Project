@@ -4,6 +4,8 @@
     display: flex;
     /* border: 2px solid red; */
     justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 5px -5px rgba(0,0,0, 0.6);
 }
 
 .links {
@@ -26,7 +28,7 @@
 }
 
 .avatarImg{
-    width: 60px;
+    width: 58px;
     border-radius: 50%;
     align-self: flex-end;
     

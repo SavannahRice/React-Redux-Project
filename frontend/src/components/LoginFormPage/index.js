@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {loadUser} from '../../store/session';
+import {login} from '../../store/session';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 
@@ -21,7 +21,7 @@ const LoginFormPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
-         return dispatch(loadUser({credential, password}))
+         return dispatch(login({credential, password}))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);

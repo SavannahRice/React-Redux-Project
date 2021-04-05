@@ -7,9 +7,28 @@ const load = list => ({
   
 });
 
-export const getSearchResults = (param) => async dispatch => {
+// export const getSearchResults = (param) => async dispatch => {
     
-    const response = await csrfFetch(`/api/search/${param}`);
+//     const response = await csrfFetch(`/api/search/${param}`);
+
+//     if (response.ok){
+//         const list = await response.json();
+//         dispatch(load(list));
+//         // console.log(list);
+//         return list;
+//     }
+
+// };
+
+export const getSearchResults = (searchParams) => async dispatch => {
+    const {startDate, endDate, searchQuery} = searchParams;
+    const response = await csrfFetch(`/api/search/${searchQuery}`, {
+        method: "POST",
+        body: JSON.stringify({
+            startDate,
+            endDate,
+        }),
+    });
 
     if (response.ok){
         const list = await response.json();

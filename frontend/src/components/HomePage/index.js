@@ -22,15 +22,18 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const rentals = useSelector(state => state.rentals);
     const [searchQuery, setSearchQuery] = useState('');
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     // const [singleRental, setSingleRental] = useState();
 
     let history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log('test1')
-        dispatch(getSearchResults(searchQuery))
-        history.push('/search');
+        const searchParams = {startDate, endDate, searchQuery};
+        console.log(searchParams);
+        dispatch(getSearchResults(searchParams));
+        history.push(`/search/${searchQuery}`);
     }
 
     // const handleSingleRental = async (e) => {
@@ -53,24 +56,24 @@ const HomePage = () => {
                 <h2>Explore a new state</h2>
                     <div className='statesDiv'>
                         <div className='state' id='state1'>
-                        <a href="/search" value='ID' onMouseEnter={() => setSearchQuery('ID')} onClick={handleSubmit}><img className="id" src={idaho} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('ID')} onClick={handleSubmit}>Idaho</a>
+                        <a href={`/search/${searchQuery}`} value='ID' onMouseEnter={() => setSearchQuery('Idaho')} onClick={handleSubmit}><img className="id" src={idaho} alt=""/></a>
+                            <a href={`/search/${searchQuery}`} onMouseEnter={() => setSearchQuery('idaho')} onClick={handleSubmit}>Idaho</a>
                         </div>
                         <div className='state' id='state2'>
-                        <a href="/search" value='CA' onMouseEnter={() => setSearchQuery('CA')} onClick={handleSubmit}><img className="ca" src={california} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('CA')} onClick={handleSubmit}>California</a>
+                        <a href="/search" value='CA' onMouseEnter={() => setSearchQuery('california')} onClick={handleSubmit}><img className="ca" src={california} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('california')} onClick={handleSubmit}>California</a>
                         </div>
                         <div className='state' id='state3'>
-                        <a href="/search" value='UT' onMouseEnter={() => setSearchQuery('UT')} onClick={handleSubmit}><img className="ut" src={utah} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('UT')} onClick={handleSubmit}>Utah</a>
+                        <a href="/search" value='UT' onMouseEnter={() => setSearchQuery('utah')} onClick={handleSubmit}><img className="ut" src={utah} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('utah')} onClick={handleSubmit}>Utah</a>
                         </div>
                         <div className='state' id='state4'>
-                        <a href="/search" value='WA' onMouseEnter={() => setSearchQuery('WA')} onClick={handleSubmit}><img className="wa" src={washington} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('WA')} onClick={handleSubmit}>Washington</a>
+                        <a href="/search" value='WA' onMouseEnter={() => setSearchQuery('washington')} onClick={handleSubmit}><img className="wa" src={washington} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('washington')} onClick={handleSubmit}>Washington</a>
                         </div>
                         <div className='state' id='state5'>
-                        <a href="/search" value='WY' onMouseEnter={() => setSearchQuery('WY')} onClick={handleSubmit}><img className="wy" src={wyoming} alt=""/></a>
-                            <a href="/search" onMouseEnter={() => setSearchQuery('WY')} onClick={handleSubmit}>Wyoming</a>
+                        <a href="/search" value='WY' onMouseEnter={() => setSearchQuery('wyoming')} onClick={handleSubmit}><img className="wy" src={wyoming} alt=""/></a>
+                            <a href="/search" onMouseEnter={() => setSearchQuery('wyoming')} onClick={handleSubmit}>Wyoming</a>
                         </div>
                         <div className='state' id='state6'>
                         <a href="/search" value='NM' onMouseEnter={() => setSearchQuery('New')} onClick={handleSubmit}><img className="nm" src={newmexico} alt=""/></a>

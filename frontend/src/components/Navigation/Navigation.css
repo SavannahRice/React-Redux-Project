@@ -31,6 +31,7 @@
     width: 58px;
     border-radius: 50%;
     align-self: flex-end;
+    /* border: 2px solid black; */
     
 }
 .avatarImg:hover{
@@ -48,30 +49,89 @@
     
 }
 
+.loggedUser {
+    /* border: 2px solid red; */
+    width: 70px;
+    
+}
+
 .searchAndAvatarDiv{
     display: flex;
     /* border: 2px solid black; */
-    width: 90%;
-    justify-content: flex-end; 
+    width: 65%;
+    justify-content: space-between; 
     margin-right: 30px;
 }
-.searchBarLogged{
-    width: 50%;
+
+.formDiv{
     border: 2px solid lightgray;
-    border-radius: 15px;
+    border-radius: 20px;
+    height: 45px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 65%;
+}
+.searchBarLogged{
+    width: auto;
+    /* border-radius: 15px;  */
     padding: 5px;
-    margin: 5px 10px;
-    outline: none;
-    align-self: flex-end;
+    margin-left:5px;
+    /* outline: none; */
+    border: none;
+    font-size: 13px;
+    background: none;
+    
 
 }
 
 .menuDropdown{
     transform: translateX(-50%);
-    border: 2px solid black;
     background-color: rgba(0,0,0, 0.6);
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 150px;
 
 }
+
+.searchBarBtn{
+    background-color: white;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    margin-right: 8px;
+    border: none;
+    color: gray;
+    font-size: 20px;
+   
+    
+}
+
+.searchBarBtn:hover{
+    cursor: pointer;
+}
+
+.dateDiveSearch{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+}
+
+.searchDateLabel,
+.searchDateInput {
+    display: block;
+    border: none;
+    color: grey;
+    font-size: 13px;
+   margin-left: 5px;
+    
+}
+
+
+
+
+
 
 

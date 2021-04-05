@@ -27,13 +27,18 @@ const LoginFormPage = () => {
                 if (data && data.errors) setErrors(data.errors);
             });
     }
+
+    const handleDemo = async (e) => {
+        e.preventDefault();
+        dispatch(login({credential: 'Demo-lition', password: 'password'}))
+    }
     return (
         <div className='loginPage' >
             <div className='formContainer'>
                 <ul>
                         {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
-                <form className='loginForm' onSubmit={handleSubmit}>
+                <form className='loginForm' >
                     <h2 className='formName input'>Login</h2>
                     <input
                     className='credential input'
@@ -51,7 +56,8 @@ const LoginFormPage = () => {
                     value={password}
                     onChange={updatePassword}
                     />
-                    <button className='button input' type='submit'>Login</button>
+                    <button className='button input' type='submit' onClick={handleSubmit}>Login</button>
+                    <button className='button input' type='submit' onClick={handleDemo}>Demo</button>
                 </form>
             </div>
         </div>

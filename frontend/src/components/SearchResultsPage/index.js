@@ -1,9 +1,10 @@
 import React from 'react';
 import './SearchResultsPage.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link,  useParams} from 'react-router-dom';
 import { getSingleRental } from '../../store/rentals';
+import { getSearchResults} from '../../store/search';
 
 
 const SearchResultsPage = () => {
@@ -11,11 +12,17 @@ const SearchResultsPage = () => {
     const dispatch = useDispatch();
     const rentals = useSelector(state => state.search);
     const [singleRental, setSingleRental] = useState();
-    console.log(useParams());
+    const param = useParams();
+
+    useEffect(() => {
+        dispatch(getSearchResults(param))
+    }, [dispatch])
 
     const handleSingleRental = async (e) => {
         dispatch(getSingleRental(singleRental))
     }
+
+    if (!rentals) return null;
 
     return (
 

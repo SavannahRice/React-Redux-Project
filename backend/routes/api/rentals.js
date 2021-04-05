@@ -74,8 +74,9 @@ router.get('/:rentalId/review', asyncHandler(async(req, res) => {
         where: {
             rentalId: {
                 [Op.eq]: req.params.rentalId
-            }
+            }, 
         },
+        
     });
     return res.json(reviews);
 }));

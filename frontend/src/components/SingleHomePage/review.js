@@ -44,6 +44,7 @@ const Reviews = () => {
         setEditForm(false);
         setDescription('');
         setRating();
+        dispatch(getReviews(rentalId))
     }
 
     const userHasStayed = () => {
@@ -51,6 +52,8 @@ const Reviews = () => {
             Object.values(reservations).forEach(reservation => {
                 if (reservation.userId === sessionUser.id){
                     setHasStayed(true)
+                } else {
+                    setHasStayed(false)
                 }
             })
          console.log(hasStayed)
@@ -91,7 +94,7 @@ const Reviews = () => {
                     }
                      else return  (
                     <div>
-                        <p key={review.id}>⭐️ {review.rating}</p>
+                        <p key={review.id}>⭐ {review.rating}</p>
                         <p key={review.description}>{review.description}</p>
                     </div>)
                 })
@@ -110,7 +113,7 @@ const Reviews = () => {
                 value='1'
                 onChange={(e) => setRating(e.target.value)}
                 checked={rating === '1'}
-                />1 ⭐️
+                />1 ⭐
                 <input 
                 type="radio" 
                 onChange={(e) => setRating(e.target.value)}

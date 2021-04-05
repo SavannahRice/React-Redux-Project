@@ -214,7 +214,25 @@
     cursor: pointer;
 }
 
+.entireReviewDiv{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
 
+.reviewButtonSubmit{
+    background-color: rgb(249, 89, 79);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-left: 110px;
+}
+
+.ratingsButtons{
+    margin-left: 140px;
+}
 
 
 

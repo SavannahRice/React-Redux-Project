@@ -163,45 +163,49 @@ const Reviews = () => {
                 })
                }
             </ul>
-            <form onSubmit={handleReviewSubmit}></form>
-                <label >Add Your Review!</label>
-                <input type="text area"
-                className='input'
-                required
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                />
-                <input 
-                type="radio" 
-                value='1'
-                onChange={(e) => setRating(e.target.value)}
-                checked={rating === '1'}
-                />1 ⭐️
-                <input 
-                type="radio" 
-                onChange={(e) => setRating(e.target.value)}
-                checked={rating === '2'}
-                value='2'
-                />2 ⭐️
-                <input 
-                type="radio" 
-                value='3'
-                onChange={(e) => setRating(e.target.value)}
-                checked={rating === '3'}
-                />3 ⭐️
-                <input 
-                type="radio" 
-                value='4'
-                onChange={(e) => setRating(e.target.value)}
-                checked={rating === '4'}
-                />4 ⭐️
-                <input 
-                type="radio" 
-                value='5'
-                onChange={(e) => setRating(e.target.value)}
-                checked={rating === '5'}
-                />5 ⭐️
-                <button type='submit' onClick={handleReviewSubmit}>Review!</button>
+            <div className='entireReviewDiv'>
+                <form onSubmit={handleReviewSubmit}></form>
+                    <label >Add Your Review!</label>
+                    <input type="text area"
+                    className='input'
+                    required
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <div className='ratingsButtons'>
+                        <input
+                        type="radio"
+                        value='1'
+                        onChange={(e) => setRating(e.target.value)}
+                        checked={rating === '1'}
+                        />1 ⭐️
+                        <input
+                        type="radio"
+                        onChange={(e) => setRating(e.target.value)}
+                        checked={rating === '2'}
+                        value='2'
+                        />2 ⭐️
+                        <input
+                        type="radio"
+                        value='3'
+                        onChange={(e) => setRating(e.target.value)}
+                        checked={rating === '3'}
+                        />3 ⭐️
+                        <input
+                        type="radio"
+                        value='4'
+                        onChange={(e) => setRating(e.target.value)}
+                        checked={rating === '4'}
+                        />4 ⭐️
+                        <input
+                        type="radio"
+                        value='5'
+                        onChange={(e) => setRating(e.target.value)}
+                        checked={rating === '5'}
+                        />5 ⭐️
+                        <div><button className='reviewButtonSubmit' type='submit' onClick={handleReviewSubmit}>Review!</button></div>
+                    </div>
+            </div>
         </div>
     )
 

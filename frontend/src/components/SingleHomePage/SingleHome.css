@@ -234,6 +234,19 @@
     margin-left: 140px;
 }
 
+.reviewButtonEdit{
+    background-color: rgb(249, 89, 79);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.editButtonDiv{
+    margin-left: 50px;
+}
+
 
 
 

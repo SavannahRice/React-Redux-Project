@@ -33,15 +33,15 @@ const LoginFormPage = () => {
         dispatch(login({credential: 'Demo-lition', password: 'password'}))
     }
     return (
-        <div className='loginPage' >
-            <div className='formContainer'>
+        <div className='mainloginPage' >
+            <div className='loginformContainer'>
                 <ul>
                         {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
-                <form className='loginForm' >
-                    <h2 className='formName input'>Login</h2>
+                <form className='mainloginForm' >
+                    <h2 className='formName logininput'>Login</h2>
                     <input
-                    className='credential input'
+                    className='credential logininput'
                     type='text'
                     placeholder="Enter username or email"
                     required
@@ -49,15 +49,15 @@ const LoginFormPage = () => {
                     onChange={updateCredential}
                     />
                     <input
-                    className='password input'
+                    className='password logininput'
                     type='password'
                     placeholder="Enter password"
                     required
                     value={password}
                     onChange={updatePassword}
                     />
-                    <button className='button input' type='submit' onClick={handleSubmit}>Login</button>
-                    <button className='button input' type='submit' onClick={handleDemo}>Demo</button>
+                    <button className='button logininput' type='submit' onClick={handleSubmit}>Login</button>
+                    <button className='button logininput' type='submit' onClick={handleDemo}>Demo</button>
                 </form>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup } from '../../store/session';
+import { signup, login } from '../../store/session';
 import { Redirect } from 'react-router-dom';
 import './SignUpForm.css';
 
@@ -37,17 +37,23 @@ const SignupFormPage = () => {
         return setErrors(['Confirm password and password must match.'])
         
     }
+
+    const handleDemo = async (e) => {
+        e.preventDefault();
+        dispatch(login({credential: 'Demo-lition', password: 'password'}))
+    }
+
     return (
         
         <div className='signupPage'>
-            <div className='formContainer'>
+            <div className='suformContainer'>
                 <ul>
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
                 <form className='signUpForm' onSubmit={handleSubmit}>
-                    <h2 className='formName input'>Sign Up</h2>
+                    <h2 className='formName suinput'>Sign Up</h2>
                     <input
-                    className='username input'
+                    className='username suinput'
                     type='text'
                     placeholder="Username"
                     required
@@ -55,7 +61,7 @@ const SignupFormPage = () => {
                     onChange={updateName}
                     />
                     <input
-                    className='email input'
+                    className='email suinput'
                     type='text'
                     placeholder="Email"
                     required
@@ -63,7 +69,7 @@ const SignupFormPage = () => {
                     onChange={updateEmail}
                     />
                     <input
-                    className='password input'
+                    className='password suinput'
                     type='password'
                     placeholder="Enter password"
                     required
@@ -71,14 +77,15 @@ const SignupFormPage = () => {
                     onChange={updatePassword}
                     />
                     <input
-                    className='password input'
+                    className='password suinput'
                     type='password'
                     placeholder="Confirm password"
                     required
                     value={confirmPassword}
                     onChange={updateConfirmPassword}
                     />
-                    <button className='button input' type='submit' onSubmit={handleSubmit}>Sign up</button>
+                    <button className='button suinput' type='submit' onSubmit={handleSubmit}>Sign up</button>
+                    <button className='button logininput' type='submit' onClick={handleDemo}>Demo</button>
                 </form>
             </div>
         </div>

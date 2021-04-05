@@ -48,7 +48,7 @@ const SingleHomePage = () => {
                         id='googleMap'
                         loading="lazy"
                         allowFullScreen
-                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAl1IbEb1b7skTlCdT0vrrCWIwYVZZxXg4&q&q=${rental.city}+${rental.state}`}>
+                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDqx09mzXJMueG2ClpeEgp9U6xYGCQYlrs&q=${rental.city}+${rental.state}`}>
                     </iframe>
                     </div>
                     <Reservation/>

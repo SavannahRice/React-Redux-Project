@@ -32,7 +32,8 @@ const Reservation = () => {
                 <h1>Booking made!</h1>
                 <p>Check-in: {startDate}</p>
                 <p>Check-out: {endDate}</p>
-                <p>{duration} days ${cost}</p>
+                <p>{duration} nights </p>
+                <p>Total ${cost}</p>
             </div>
         )
     }

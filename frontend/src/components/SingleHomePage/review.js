@@ -1,9 +1,10 @@
 import React from 'react';
 import './SingleHome.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, TextInput } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {writeReview, getReviews, deleteReview, editReview} from '../../store/review';
 import {getReservations} from '../../store/reservation';
+// import {TextInput} from 'react-native';
 
 const Reviews = () => {
 
@@ -86,14 +87,14 @@ const Reviews = () => {
     if (sessionUser && editForm && !cancelEdit){
         return (
             <div>
-            <ul>
+            <ul >
                {
                 Object.values(reviews).map(review => {
                     if (review.userId === sessionUser.userId){
                         return null;
                     }
                      else return  (
-                    <div>
+                    <div className='reviewText'>
                         <p key={review.id}>⭐ {review.rating}</p>
                         <p key={review.description}>{review.description}</p>
                     </div>)
@@ -102,8 +103,11 @@ const Reviews = () => {
             </ul>
             <form onSubmit={handleReviewSubmit}></form>
                 <label >Edit Your Review!</label>
-                <input type="text area"
+                <input
+                className='input'
+                type='textarea' 
                 required
+                multiline
                 value={description}
                 placeholder='your review text'
                 onChange={(e) => setDescription(e.target.value)}
@@ -147,11 +151,11 @@ const Reviews = () => {
  
     if (sessionUser && hasStayed ) return (
         <div>
-            <ul>
+            <ul >
                {
                 Object.values(reviews).map(review => {
                     return  (
-                    <div>
+                    <div className='reviewText'>
                         <p key={review.id}>⭐️ {review.rating}</p>
                         <p key={review.description}>{review.description}</p>
                         {addEditButton(review, sessionUser.id)}
@@ -162,6 +166,7 @@ const Reviews = () => {
             <form onSubmit={handleReviewSubmit}></form>
                 <label >Add Your Review!</label>
                 <input type="text area"
+                className='input'
                 required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -202,15 +207,17 @@ const Reviews = () => {
 
     return (
         <div>
-            {
-                Object.values(reviews).map(review => {
-                    return  (
-                    <div>
-                        <p key={review.id}>⭐️ {review.rating}</p>
-                        <p key={review.description}>{review.description}</p>
-                    </div>)
-                })
-               }
+            <ul>
+                {
+                    Object.values(reviews).map(review => {
+                        return  (
+                        <div className='reviewText'>
+                            <p key={review.id}>⭐️ {review.rating}</p>
+                            <p key={review.description}>{review.description}</p>
+                        </div>)
+                    })
+                   }
+            </ul>
         </div>
     )
 }

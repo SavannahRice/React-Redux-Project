@@ -129,7 +129,8 @@
     align-content: center;
 }
 
-#rentalConfirmation {
+#rentalConfirmation
+ {
     width: 400px;
     height: 200px;
     display: flex;
@@ -177,6 +178,42 @@
     padding:none;
     margin-left: -40px;
 }
+
+#notloggedDiv > h1 {
+    color: white;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.notLoggedDiv {
+    color: white;
+}
+
+.notLoggedDiv:visited{
+    color:white;
+}
+
+#notloggedDiv{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline; 
+    background-color: rgb(249, 89, 79);
+    box-shadow: 2px 2px 5px 2px rgb(0,0,0,0.2);
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+#bookingSubmit{
+    width: 335px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
 
 
 

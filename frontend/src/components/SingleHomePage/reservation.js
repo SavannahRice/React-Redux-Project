@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {makeReservation } from '../../store/reservation';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import parseISO from 'date-fns/parseISO';
+import {NavLink} from 'react-router-dom';
 
 const Reservation = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,9 @@ const Reservation = () => {
 
     if (!sessionUser){
         return (
-            <h1>Login or Create Account to Reserve!</h1>
+            <div id='notloggedDiv'>
+                <h1><NavLink to='/login' className='notloggedDiv'>Login</NavLink> or <NavLink to='/signup' className='notloggedDiv'>Signup</NavLink> to Reserve!</h1>
+            </div>
         )
     }
     
@@ -82,7 +85,7 @@ const Reservation = () => {
                         />
                     </div>
                 </div>
-                <button type='submit' onSubmit={handleSubmit}>Book Now!</button>
+                <button type='submit' onSubmit={handleSubmit} id='bookingSubmit'>Book Now!</button>
             </form>
         </div>
     )

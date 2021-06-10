@@ -6,6 +6,7 @@ import utah from "../images/utah.png";
 import washington from "../images/washington.png";
 import wyoming from "../images/wyoming.png";
 import newmexico from "../images/newmexico.png";
+import doghouse from "../images/Doghouse.png"
 import {getRentals} from '../../store/rentals'
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";

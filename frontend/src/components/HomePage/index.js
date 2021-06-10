@@ -113,7 +113,8 @@ const HomePage = () => {
                                 </div>
                             </div>)
                         )}
-                    </div>  
+                    </div> 
+                    <img src={doghouse} alt="" style={{'display': 'none'}} /> 
             </div>
         </>
     )

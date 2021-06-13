@@ -17,7 +17,6 @@ export const getReservations = (rentalId) => async dispatch =>{
     const response = await csrfFetch(`/api/rentals/${rentalId}`);
     if (response.ok){
         const list = await response.json();
-        console.log('these are the reservations',list);
         dispatch(load(list));
         return list;
     }

@@ -55,7 +55,6 @@ router.post('/:rentalId', validateDates, asyncHandler(async(req, res) => {
 // }))
 
 router.post('/:rentalId/review',  asyncHandler(async(req, res) => {
-    console.log('inside review backend route')
     const { userId, description, rating } = req.body;
     const review = await Review.create({
         userId,
@@ -68,8 +67,6 @@ router.post('/:rentalId/review',  asyncHandler(async(req, res) => {
 }));
 
 router.get('/:rentalId/review', asyncHandler(async(req, res) => {
-    
-    // console.log(req.params.rentalId)
     const reviews = await Review.findAll({
         where: {
             rentalId: {
@@ -84,7 +81,6 @@ router.get('/:rentalId/review', asyncHandler(async(req, res) => {
 router.delete('/:rentalId/review/:reviewId', asyncHandler(async(req, res) => {
     
     const reviewId = req.params.reviewId;
-    console.log('THIS IT THE REVIEWID',reviewId)
     const review = await Review.findByPk(reviewId);
     review.destroy();
     return res.json(null);

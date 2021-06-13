@@ -33,7 +33,6 @@ export const getSearchResults = (searchParams) => async dispatch => {
     if (response.ok){
         const list = await response.json();
         dispatch(load(list));
-        // console.log(list);
         return list;
     }
 

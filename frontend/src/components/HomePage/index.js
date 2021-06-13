@@ -32,7 +32,6 @@ const HomePage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const searchParams = {startDate, endDate, searchQuery};
-        console.log(searchParams);
         dispatch(getSearchResults(searchParams));
         history.push(`/search/${searchQuery}`);
     }

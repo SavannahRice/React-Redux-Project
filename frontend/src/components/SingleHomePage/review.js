@@ -39,7 +39,6 @@ const Reviews = () => {
     }
 
     const handleEditSubmit = async (e) => {
-        console.log(reviewId)
         const reviewInfo = {reviewId, rentalId, description, rating};
         dispatch(editReview(reviewInfo));
         setEditForm(false);
@@ -49,7 +48,6 @@ const Reviews = () => {
     }
 
     const userHasStayed = () => {
-        console.log(reservations)
             Object.values(reservations).forEach(reservation => {
                 if (reservation.userId === sessionUser.id){
                     setHasStayed(true)
@@ -57,7 +55,6 @@ const Reviews = () => {
                     setHasStayed(false)
                 }
             })
-         console.log(hasStayed)
     }
 
     const handleReviewDelete = async (e) => dispatch(deleteReview(rentalId, reviewId))

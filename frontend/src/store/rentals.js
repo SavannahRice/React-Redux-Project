@@ -20,15 +20,12 @@ export const getRentals = () => async dispatch => {
     if (response.ok){
         const list = await response.json();
         dispatch(load(list));
-        // console.log(list);
         return list;
     }
 };
 
 export const getSingleRental = (id) => async dispatch => {
-    // console.log('id');
     const response = await csrfFetch(`/api/rentals/${id}`);
-
     if (response.ok){
         const item = await response.json();
         dispatch(setItem(item));

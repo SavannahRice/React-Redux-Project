@@ -27,7 +27,6 @@ const editSingleReview = (review) => ({
 })
 
 export const writeReview = (reviewInfo) => async dispatch => {
-    console.log('inside action creator')
     const { userId, rentalId, description, rating} = reviewInfo;
     const response = await csrfFetch(`/api/rentals/${rentalId}/review`, {
         method: "POST",
@@ -52,7 +51,6 @@ export const editReview = (reviewInfo) => async dispatch => {
         }),
     });
     const data = await response.json();
-    console.log(data.id);
     dispatch(editSingleReview(data));
 }
 

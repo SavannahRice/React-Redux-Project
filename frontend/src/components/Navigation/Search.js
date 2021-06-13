@@ -11,9 +11,7 @@ const SearchBar = () => {
     let history = useHistory();
 
     const handleSubmit = async (e) => {
-        console.log('Click event on search bar')
         e.preventDefault();
-
         const searchParams = {startDate, endDate, searchQuery}
         dispatch(getSearchResults(searchParams))
         history.push(`/search/${searchQuery}`);
